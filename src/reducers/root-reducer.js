@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import teamReducer from './teams-reducer';
+import playerReducer from './player';
 
 export default combineReducers({
-teams: teamReducer
+    players: playerReducer
 });
