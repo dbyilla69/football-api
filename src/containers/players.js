@@ -10,32 +10,17 @@ class Players extends Component {
   }
 
   render() {
-    //const sample = Object.values(players.players).map(player => player.player.firstName);
-    //playerList = this.props.players.map(player => player.player.firstName);
-    //const playerList = players.map(player => player.player.firstName);
-    //const { players } = this.props;
+    const { players } = this.props;
 
-    return (
-      // <table className='table table-sm'>
-      //   <thead>
-      //     <tr>
-      //       <th scope='col'>#</th>
-      //       <th scope='col'>First</th>
-      //       <th scope='col'>Last</th>
-      //       <th scope='col'>Handle</th>
-      //     </tr>
-      //   </thead>
-      //   <tbody />
-      // </table>
-      <h1>Testing</h1>
-      // { playerList}
-      //{ sample}
-    );
+    const sample = Object.values(players).map(player => player.player.firstName);
+
+    return <ul>{sample}</ul>;
   }
 }
 
 //In the state should I see the whole api state?
-const mapStateToProps = state => ({ players: state.players.players });
+const mapStateToProps = state => ({ players: state.players.players })
+
 
 //What should I see from dispatch?
 const mapDispatchToProps = dispatch => ({
