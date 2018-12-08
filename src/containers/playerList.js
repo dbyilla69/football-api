@@ -1,48 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions/index';
+import React from 'react';
 
-// class Players extends Component {
-//     componentDidMount() {
-//         this.props.onFetchPlayers();
-//     }
+const PlayerList = ({players}) => {
+  return (
+    <table className='table'>
+    <thead>
+      <tr>
+        <th>Jersey Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.values(players).map(player => (
+        <tr key={player.player.id}>
+          <td>{player.player.jerseyNumber}</td>
+          <td>{player.player.lastName}</td>
+          <td>{player.player.firstName}</td>
+          <td>{player.player.weight}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table> );
+}
 
-//     render() {
-//         //const sample = Object.values(players.players).map(player => player.player.firstName);
-//         playerList = this.props.players.map(player => player.player.firstName);
-//         //const playerList = players.map(player => player.player.firstName);
-
-//         return (
-//             // <table className='table table-sm'>
-//             //   <thead>
-//             //     <tr>
-//             //       <th scope='col'>#</th>
-//             //       <th scope='col'>First</th>
-//             //       <th scope='col'>Last</th>
-//             //       <th scope='col'>Handle</th>
-//             //     </tr>
-//             //   </thead>
-//             //   <tbody />
-//             // </table>
-//             <h1>Testing</h1>
-//             // { playerList}
-//             //{ sample}
-//         );
-//     }
-// }
-
-export const Players = ({ players = [] }) => (<div>{players.map(player => player.firstName)}</div> );
-
-
-//In the state should I see the whole api state?
-const mapStateToProps = state => ({ players: state.players.players });
-
-//What should I see from dispatch?
-const mapDispatchToProps = dispatch => ({
-    onFetchPlayers: () => dispatch(actions.fetchPlayers())
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Players);
+export default PlayerList;
